@@ -2,8 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 img.prop-thumb {
-    width: 250px;
-    height: auto;
+    width: auto;
+    height: 180px;
 }
 
 img.prop-photo {
@@ -15,4 +15,20 @@ img.prop-photo {
     height: 450px;
     background-size: cover;
     margin-bottom: 30px;
+}
+
+#prop-details {
+    height: 120px;
+    overflow: hidden;
+    &.open {
+        height: auto;
+    }
+}
+
+.property-thumb {
+    height: 170px;
+    width: auto;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
 }
