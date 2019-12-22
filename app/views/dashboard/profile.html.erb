@@ -1,1 +1,69 @@
-<p><%= @account.full_name %></p>
+<div class="container">
+  <div class="row">
+      <div class="col-sm-8">
+      <div class="row">
+      <div class="col-lg-6">
+        <p class="h4 mb-2"><%= @account.full_name %></p>
+        <p class="mb-8"><%= @account.company %></p>
+      </div>
+
+      <div class="col-lg-6 text-center">
+        <div class="row mt-sm-3 bg-light p-3">
+          <div class="col-3">
+            <i class="fa fa-bed text-muted m-0"></i><br />
+            <small><%= @properties_sold %>Sold</small>
+          </div>
+          <div class="col-3">
+            <i class="fa fa-bed text-muted m-0"></i><br />
+            <small><%= @properties_for_sale %>For Sale</small>
+          </div>
+          <div class="col-3">
+            <i class="fa fa-bath text-muted m-0"></i><br />
+            <small><%= @properties_leased %>Leased</small>
+          </div>
+          <div class="col-3">
+            <i class="fa fa-car text-muted m-0"></i><br />
+            <small><%= @property_for_rent %>For Rent</small>
+          </div>
+        </div> 
+      </div>
+  </div>
+
+  <div class="row border-top border-bottom mt-2 mb-2 pt-4 pb-4">
+    <div class="col-6">
+     Properties
+    </div>
+    <div class="col-sm-6 text-right">
+      <strong><%= link_to "Can I afford this property", "#", class: "text-success" %> </strong>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <p class="h3">Description</p>
+        <div id="prop-details" class="">
+          <%= simple_format @account.details %>
+        </div>
+
+        <button class="btn btn-outline-success mt-3" id="toggleDetails">Read more</button>
+      </div>
+    </div>
+  </div>
+ <div class="col-sm-4">
+    <%= render "properties/agent_details", agent: @account %>
+
+  </div>
+</div>
+
+<section class="mt-5 mb-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <p class="h3 mb-3">Other properties by this agent</p>
+      </div>
+      <%= render "properties/list", properties: @properties %>
+    </div>
+  </div>
+</section>
+
+<%= render "properties/send_email_modal", agent: @account %>
