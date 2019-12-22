@@ -1,0 +1,52 @@
+<%= form_with(model: property, local: true) do |form| %>
+  <%= render "layouts/validation", item: @property %>
+
+  <div class="form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :address %>
+    <%= form.text_field :address, class: "form-control"  %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :price %>
+    <%= form.number_field :price, class: "form-control"  %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :rooms %>
+    <%= form.number_field :rooms, class: "form-control"  %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :bathrooms %>
+    <%= form.number_field :bathrooms, class: "form-control"  %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :parking_spaces %>
+    <%= form.number_field :parking_spaces, class: "form-control"  %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :details %>
+    <%= form.text_area :details, class: "form-control"  %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :photo %>
+    <%= form.file_field :photo, class: "form-control"  %>
+    <%= form.hidden_field :photo_cache %>
+
+    <% if @property.photo.present? %>
+      <%= image_tag @property.photo.url, class: "mt-3 prop-photo" %>
+    <% end %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Save property", class: "btn btn-lg btn-success" %>
+  </div>
+<% end %>
