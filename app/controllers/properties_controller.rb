@@ -96,6 +96,7 @@ class PropertiesController < ApplicationController
         :price, :rooms, 
         :parking_spaces, :details,
         :bathrooms, :photo, :photo_cache, 
-        :for_sale, :available_date)
+        :for_sale, :available_date,
+        :status)
     end
 end

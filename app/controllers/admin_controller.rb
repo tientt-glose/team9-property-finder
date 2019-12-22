@@ -2,7 +2,7 @@ class AdminController < ApplicationController
     before_action :can_access?
 
     def accounts
-        @accounts = Account.where(admin: false)
+        @accounts = Account.where(admin: nil)
     end
 
     def can_access?

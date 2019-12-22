@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :accounts
-  
+  resources :posts  
   resources :properties  
 
   get "/accounts" => 'admin#accounts', as: :accounts
