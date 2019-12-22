@@ -65,6 +65,20 @@ class PropertiesController < ApplicationController
     end
   end
 
+  def email_agent
+    agent_id = params[:agent_id]
+    first_name = params[:first_name]
+    last_name = params[:last_name]
+    email = params[:email]
+    message = params[:message]
+
+    ContactMailer.email_agent( agent_id, first_name, last_name, email, message).deliver_now
+
+    respond_to do |format|
+      format.json { head :no_content }
+    end 
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_property
@@ -77,6 +91,11 @@ class PropertiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def property_params
-      params.require(:property).permit(:name, :address, :price, :rooms, :parking_spaces, :details,:bathrooms, :photo, :photo_cache)
+      params.require(:property).permit(
+        :name, :address, 
+        :price, :rooms, 
+        :parking_spaces, :details,
+        :bathrooms, :photo, :photo_cache, 
+        :for_sale, :available_date)
     end
 end
