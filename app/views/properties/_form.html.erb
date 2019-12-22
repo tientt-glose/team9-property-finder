@@ -30,6 +30,10 @@
     <%= form.label :photo %>
     <%= form.file_field :photo, class: "form-control"  %>
     <%= form.hidden_field :photo_cache %>
+
+    <% if @property.photo.present? %>
+      <%= image_tag @property.photo.url, class: "mt-3 prop-photo" %>
+    <% end %>
   </div>
 
   <div class="actions">
