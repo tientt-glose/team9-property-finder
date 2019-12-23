@@ -1,0 +1,24 @@
+<div class="text-center">
+    <div class="mb-2">
+        <%= profile_picture agent %>
+        <h3 class="h4"><%= agent.full_name %></h3>
+        <p><%= agent.company %></p>
+
+        <div class="row justify-content-md-center">
+            <div class="col-md-10">
+                <button 
+                    class="btn btn-block btn-info text-uppercase mb-1"
+                    id="show-tel" data-telephone="<%= agent.telephone%>"
+                >
+                <i class="fa fa-phone mr-2"></i><span>Call</span>
+                </button>
+            </div>
+            <div class="col-md-10">
+                <button class="btn btn-block btn-success text-uppercase" 
+                data-toggle="modal" data-target="#contact-modal"> 
+                <i class="fa fa-envelope mr-2"></i><span>Email</span>
+                </button>
+            </div>
+        </div>   
+    </div>
+</div>

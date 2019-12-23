@@ -10,3 +10,20 @@
 .img-circle {
     border-radius: 50%;
 }
+
+#home-banner .jumbotron {
+    background: image-url("banners/home.png") no-repeat center center;
+    background-size: cover;
+}
+
+.main-banner .jumbotron {
+    h1,
+    p {
+        color: #fff;
+        text-shadow: 1px 1px 2px #777;
+    }
+}
+
+body {
+    padding-top: 56px;
+}
